@@ -28,4 +28,6 @@ script:
   - yarn build
 
 after_success:
-  - cd ./dist && ls
+  # show output tree
+  - cd ./dist && tree
+  # netlify soon!
