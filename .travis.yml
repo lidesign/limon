@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - "12"
   - "11"
 
 sudo: false
@@ -26,4 +27,5 @@ script:
   - yarn build # build source
 
 after_success:
-  - codecov -f .reports/**/*.json # codecov.io
+  - yarn coverage
+  - codecov -f coverage/**/*.json # codecov.io
