@@ -6,12 +6,9 @@ My personal website running on <strong>Node.js</strong> ⚡️
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fillvart%2Fillvart?ref=badge_shield" title="FOSSA">
     <img alt="FOSSA Status" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fillvart%2Fillvart.svg?type=shield" />
   </a>
-  <a href="https://deepscan.io/dashboard#view=project&tid=3680&pid=6009&bid=47892" title="DeepScan">
-    <img alt="DeepScan grade" src="https://deepscan.io/api/teams/3680/projects/6009/branches/47892/badge/grade.svg" />
-  </a>
-  <!--<a href="https://www.codacy.com/app/illvart/illvart?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=illvart/illvart&amp;utm_campaign=Badge_Grade" title="Codacy">
+  <a href="https://www.codacy.com/app/illvart/illvart?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=illvart/illvart&amp;utm_campaign=Badge_Grade" title="Codacy">
     <img alt="Code Quality" src="https://api.codacy.com/project/badge/Grade/7ff26dcaf8924512a58c766c13e2568c" />
-  </a>-->
+  </a>
   <a href="https://travis-ci.com/illvart/illvart" title="Travis CI">
     <img alt="Build Status" src="https://travis-ci.com/illvart/illvart.svg?branch=master" />
   </a>
