@@ -22,6 +22,7 @@ body {
 
 a {
   color: var(--color-primary);
+  outline: none; // remove outline firefox
 
   &:hover {
     opacity: .8;

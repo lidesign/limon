@@ -33,8 +33,8 @@ module.exports = ({ output, browserSync, reload, fs, generateId, gulp, debug, re
 
   // javascript development mode
   // include map
-  gulp.task("js:dev", () =>
-    gulp
+  gulp.task("js:dev", () => {
+    return gulp
       .src(paths.input.app)
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(prettier())
@@ -44,13 +44,13 @@ module.exports = ({ output, browserSync, reload, fs, generateId, gulp, debug, re
       .pipe(sourcemaps.write("."))
       .pipe(debug({ title: "JavaScript compiled development‍:" }))
       .pipe(gulp.dest(paths.output.js))
-      .pipe(browserSync.stream())
-  );
+      .pipe(browserSync.stream());
+  });
 
   // javascript production mode
   // always include map on production for faster debugging
-  gulp.task("js:prod", () =>
-    gulp
+  gulp.task("js:prod", () => {
+    return gulp
       .src(paths.input.app)
       .pipe(sourcemaps.init({ largeFile: true }))
       // minify js with babelMinify
@@ -67,13 +67,12 @@ module.exports = ({ output, browserSync, reload, fs, generateId, gulp, debug, re
       .pipe(rename(`app.${generateId}.min.js`))
       .pipe(sourcemaps.write("."))
       .pipe(debug({ title: "JavaScript compiled production:" }))
-      .pipe(gulp.dest(paths.output.js))
-  );
+      .pipe(gulp.dest(paths.output.js));
+  });
 
   // workbox inject manifest
-  gulp.task("workbox", () =>
-    workbox
-      .injectManifest({
+  gulp.task("workbox", () => {
+    return workbox.injectManifest({
         globDirectory: output,
         globPatterns: [
           // ignore map
@@ -89,16 +88,18 @@ module.exports = ({ output, browserSync, reload, fs, generateId, gulp, debug, re
           console.warn(warning);
         }
         console.info("Service worker generation completed. 🚀");
-        console.log(`Generated ${sw}, which will precache ${count} files, totaling ${size} bytes.`);
+        console.log(
+          `Generated ${sw}, which will precache ${count} files, totaling ${size} bytes.`
+        );
       })
-      .catch(err => {
+      .catch((err) => {
         console.warn("Service worker generation failed 😵:", err);
-      })
-  );
+      });
+  });
   // minify workbox with babelMinify
   // just for development mode
-  gulp.task("workbox:minify", () =>
-    gulp
+  gulp.task("workbox:minify", () => {
+    return gulp
       .src(sw, { allowEmpty: true })
       .pipe(
         babelMinify({
@@ -109,14 +110,14 @@ module.exports = ({ output, browserSync, reload, fs, generateId, gulp, debug, re
         })
       )
       .pipe(debug({ title: "Minify:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
   // license only production mode
-  gulp.task("js:credit", cb => {
+  gulp.task("js:credit", (cb) => {
     const license = fs.readFileSync("./LICENSE", "UTF-8");
     const injectLicense = [`${output}/app.${generateId}.min.js`, sw];
-    injectLicense.forEach(file =>
+    injectLicense.forEach((file) =>
       fs.appendFileSync(file, `\n/*\n${license}\n*/\n`)
     );
     return cb();

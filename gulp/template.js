@@ -22,20 +22,20 @@ const { pd } = require("pretty-data");
 module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, debug, inject }) => {
 
   // nunjucks manageEnv
-  const manageEnvironment = plugin => {
+  const manageEnvironment = (plugin) => {
     // global
     plugin.addGlobal("mode", process.env.NODE_ENV);
 
     // filter
-    plugin.addFilter("toTitleCase", str =>
+    plugin.addFilter("toTitleCase", (str) =>
       str
         .match(
           /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
         )
-        .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+        .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
         .join(" ")
     );
-    plugin.addFilter("toEncodeURI", str => encodeURI(str));
+    plugin.addFilter("toEncodeURI", (str) => encodeURI(str));
 
     // extension
     // minify Json
@@ -71,8 +71,8 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
   };
 
   // nunjucks render
-  gulp.task("nunjucks:render", () =>
-    gulp
+  gulp.task("nunjucks:render", () => {
+    return gulp
       .src(paths.src.pages)
       .pipe(
         nunjucksRender({
@@ -100,12 +100,12 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
       )
       .pipe(debug({ title: "Rendering nunjucks to HTML:" }))
       .pipe(gulp.dest(output))
-      .pipe(browserSync.stream())
-  );
+      .pipe(browserSync.stream());
+  });
 
   // sitemap generator
-  gulp.task("sitemap", () =>
-    gulp
+  gulp.task("sitemap", () => {
+    return gulp
       .src(`${output}/**/*.html`, {
         read: false
       })
@@ -116,21 +116,23 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
         })
       )
       .pipe(debug({ title: "Generate sitemap:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
   // inject sitemap url to robots.txt
-  gulp.task("robots.txt", () =>
-    gulp
+  gulp.task("robots.txt", () => {
+    return gulp
       .src("./src/robots.txt")
+
       // inject after Allow: /
       // .pipe(inject.after("Allow: /", `\n\nSitemap: ${data.url}/sitemap.xml`))
 
       // append
       .pipe(inject.append(`\nSitemap: ${data.url}/sitemap.xml`))
+
       .pipe(debug({ title: "Inject sitemap url:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
   // watch nunjucks development mode
   gulp.task("watch:nunjucks", () => {

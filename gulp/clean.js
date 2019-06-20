@@ -15,12 +15,14 @@
  */
 
 module.exports = ({ output, del, gulp }) => {
-  gulp.task("clean", () =>
-    del([
+
+  gulp.task("clean", () => {
+    return del([
       // clean build output
       output,
       // clean build css (scss output)
       "./src/assets/css/build/"
-    ]), { force: true }
-  );
+    ]);
+  });
+
 };

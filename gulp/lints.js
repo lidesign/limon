@@ -20,17 +20,17 @@ const stylelint = require("gulp-stylelint");
 module.exports = ({ reports, gulp }) => {
 
   // linting javascript
-  gulp.task("lint:js", () =>
-    gulp
+  gulp.task("lint:js", () => {
+    return gulp
       .src("./src/**/*.js")
       .pipe(eslint())
       .pipe(eslint.format())
-      .pipe(eslint.failAfterError())
-  );
+      .pipe(eslint.failAfterError());
+  });
 
   // linting css/scss
-  gulp.task("lint:scss", () =>
-    gulp.src(["./src/assets/scss/**/*.scss"]).pipe(
+  gulp.task("lint:scss", () => {
+    return gulp.src(["./src/assets/scss/**/*.scss"]).pipe(
       stylelint({
         failAfterError: true,
         // reports linting
@@ -48,7 +48,7 @@ module.exports = ({ reports, gulp }) => {
         ],
         debug: true
       })
-    )
-  );
+    );
+  });
 
 };

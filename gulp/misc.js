@@ -23,8 +23,8 @@ const pngquant = require("imagemin-pngquant");
 module.exports = ({ output, gulp, debug }) => {
 
   // minify html
-  gulp.task("minifyHtml", () =>
-    gulp
+  gulp.task("minifyHtml", () => {
+    return gulp
       .src(`${output}/**/*.html`)
       .pipe(
         htmlmin({
@@ -41,15 +41,15 @@ module.exports = ({ output, gulp, debug }) => {
         })
       )
       .pipe(debug({ title: "Minify HTML:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
   // avoid copying private files
-  const xml_json_Input = ["./src/site.webmanifest"];
+  const minifyPrettify = ["./src/site.webmanifest"];
   // minify xml, json
-  gulp.task("minify", () =>
-    gulp
-      .src(xml_json_Input)
+  gulp.task("minify", () => {
+    return gulp
+      .src(minifyPrettify)
       .pipe(
         prettyData({
           type: "minify",
@@ -61,12 +61,12 @@ module.exports = ({ output, gulp, debug }) => {
         })
       )
       .pipe(debug({ title: "Minify:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
   // prettify xml, json
-  gulp.task("prettify", () =>
-    gulp
-      .src(xml_json_Input)
+  gulp.task("prettify", () => {
+    return gulp
+      .src(minifyPrettify)
       .pipe(
         prettyData({
           type: "prettify",
@@ -77,12 +77,12 @@ module.exports = ({ output, gulp, debug }) => {
         })
       )
       .pipe(debug({ title: "Prettify:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
   // images compress
-  gulp.task("imagesCompress", () =>
-    gulp
+  gulp.task("imagesCompress", () => {
+    return gulp
       .src(["./src/assets/img/**/*.{jpg,jpeg,png,svg}"])
       /*.pipe(
         imagemin([
@@ -90,42 +90,42 @@ module.exports = ({ output, gulp, debug }) => {
           imagemin.optipng({ optimizationLevel: 5 })
         ])
       )*/
-      .pipe(imagemin([
-        pngquant({ quality: [0.5, 0.5] }),
-        mozjpeg({ quality: 50 })
-      ]))
-      .pipe(gulp.dest(`${output}/assets/img/`))
-  );
+      .pipe(
+        imagemin([pngquant({ quality: [0.5, 0.5] }), mozjpeg({ quality: 50 })])
+      )
+      .pipe(gulp.dest(`${output}/assets/img/`));
+  });
 
   // copy images
-  gulp.task("copy:images", () =>
-    gulp
+  gulp.task("copy:images", () => {
+    return gulp
       .src(["./src/assets/img/**"])
       .pipe(debug({ title: "Copy images files:" }))
-      .pipe(gulp.dest(`${output}/assets/img/`))
-  );
+      .pipe(gulp.dest(`${output}/assets/img/`));
+  });
+
   // copy css
-  gulp.task("copy:css", () =>
-    gulp
+  gulp.task("copy:css", () => {
+    return gulp
       .src(["./src/assets/css/build/**"])
       .pipe(debug({ title: "Copy CSS files:" }))
-      .pipe(gulp.dest(`${output}/assets/css/`))
-  );
+      .pipe(gulp.dest(`${output}/assets/css/`));
+  });
 
   // copy fonts
-  gulp.task("copy:fonts", () =>
-    gulp
+  gulp.task("copy:fonts", () => {
+    return gulp
       .src(["./src/assets/fonts/**"])
       .pipe(debug({ title: "Copy fonts files:" }))
-      .pipe(gulp.dest(`${output}/assets/fonts/`))
-  );
+      .pipe(gulp.dest(`${output}/assets/fonts/`));
+  });
 
   // copy misc files
-  gulp.task("copy:misc", () =>
-    gulp
+  gulp.task("copy:misc", () => {
+    return gulp
       .src(["./src/_redirects"])
       .pipe(debug({ title: "Copy misc files:" }))
-      .pipe(gulp.dest(output))
-  );
+      .pipe(gulp.dest(output));
+  });
 
 };

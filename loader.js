@@ -22,7 +22,7 @@ const { join } = require("path");
 module.exports = (dirname, obj = {}) => {
   readdirSync(dirname)
     // .filter(path => path.endsWith(".js"))
-    .forEach(module => {
+    .forEach((module) => {
       require(`./${join(dirname, module)}`)(obj);
     });
 };

@@ -33,7 +33,7 @@ const data = JSON.parse(fs.readFileSync("./src/data/metadata.json"));
 // browserSync
 const browserSync = require("browser-sync").create();
 // browserSync reload
-const reload = cb => {
+const reload = (cb) => {
   browserSync.reload();
   cb();
 };
@@ -61,7 +61,7 @@ loader("./gulp/", {
 });
 
 // server (browserSync)
-const server = cb => {
+const server = (cb) => {
   browserSync.init({
     server: {
       baseDir: output
@@ -80,7 +80,7 @@ const server = cb => {
 };
 
 // environment mode
-const envMode = mode => cb => ((process.env.NODE_ENV = mode), cb());
+const envMode = (mode) => (cb) => ((process.env.NODE_ENV = mode), cb());
 
 // development mode: yarn serve
 exports.serve = gulp.series(
@@ -122,7 +122,7 @@ exports.default = gulp.series(
   "minifyHtml",
   "workbox",
   "workbox:minify",
-  "js:credit",
+  // "js:credit", // inject license to javascript
   (cb) => {
     console.log(`${new Date().toLocaleTimeString()} - Production version build finished!`);
     cb();

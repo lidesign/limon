@@ -74,8 +74,8 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
 
   // style development mode
   // include map
-  gulp.task("css:dev", () =>
-    gulp
+  gulp.task("css:dev", () => {
+    return gulp
       .src(paths.input.scss)
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(sassGlob())
@@ -94,13 +94,13 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
       .pipe(sourcemaps.write("."))
       .pipe(debug({ title: "CSS compiled development:" }))
       .pipe(gulp.dest(paths.output.scss))
-      .pipe(browserSync.stream())
-  );
+      .pipe(browserSync.stream());
+  });
 
   // style production mode
   // always include map on production for faster debugging
-  gulp.task("css:prod", () =>
-    gulp
+  gulp.task("css:prod", () => {
+    return gulp
       .src(paths.input.scss)
       .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(sassGlob())
@@ -111,13 +111,13 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
       .pipe(rename(`style.${generateId}.min.css`))
       .pipe(sourcemaps.write("."))
       .pipe(debug({ title: "CSS compiled production:" }))
-      .pipe(gulp.dest(paths.output.scss))
-  );
+      .pipe(gulp.dest(paths.output.scss));
+  });
 
   // Material Design Icons
   // Minify version without map used for both development and production
-  gulp.task("mdi", () =>
-    gulp
+  gulp.task("mdi", () => {
+    return gulp
       .src("./src/assets/scss/mdi/materialdesignicons.scss")
       .pipe(sassGlob())
       .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
@@ -125,13 +125,13 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
       // get the name from metadata.json
       .pipe(rename(`${data.file_name.mdi}.css`))
       .pipe(debug({ title: "Material Design Icons:" }))
-      .pipe(gulp.dest(paths.output.scss))
-  );
+      .pipe(gulp.dest(paths.output.scss));
+  });
 
   // watch css development mode
   gulp.task("watch:scss", () => {
-    // first run css:dev then mdi and copy:css build output, reload
-    gulp.watch(paths.scss, gulp.series("css:dev", "mdi", "copy:css", reload));
+    // first run css:dev then copy:css build output, reload
+    gulp.watch(paths.scss, gulp.series("css:dev", "copy:css", reload));
   });
 
 };
