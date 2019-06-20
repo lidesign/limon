@@ -12,6 +12,7 @@ branches:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.16.0
   - export PATH=$HOME/.yarn/bin:$PATH
+  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 cache:
   yarn: true
@@ -20,12 +21,16 @@ cache:
 
 install:
   - yarn
-  - yarn global add codecov
 
 script:
-  - yarn lint # linting javascript and scss
-  - yarn build # build source
+  # https://docs.fossa.com/docs/travisci
+  - fossa init
+  - fossa analyze
+
+  # linting javascript and scss
+  - yarn lint
+  # build source
+  - yarn build
 
 after_success:
-  - yarn coverage
-  - codecov -f coverage/**/*.json # codecov.io
+  - cd ./dist && fossa test

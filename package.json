@@ -46,7 +46,6 @@
     "gulp-stylelint": "^9.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "nyc": "^14.1.1",
     "postcss-discard-comments": "^4.0.2",
     "postcss-preset-env": "^6.6.0",
     "prettier": "^1.18.2",
@@ -60,19 +59,9 @@
     "lint-js": "gulp lint:js",
     "lint-scss": "gulp lint:scss",
     "lint": "yarn lint-js && yarn lint-scss",
-    "coverage": "nyc --show-process-tree yarn lint-js",
     "clean": "gulp clean",
     "serve": "gulp serve",
     "build": "gulp",
     "local": "node --experimental-modules ./server.mjs"
-  },
-  "nyc": {
-    "reporter": [
-      "json-summary",
-      "text"
-    ],
-    "report-dir": "./.coverage/",
-    "sourceMap": false,
-    "instrument": false
   }
 }

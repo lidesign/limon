@@ -52,7 +52,3 @@ doc/
 
 # Ignore CHANGELOG
 CHANGELOG.md
-
-# nyc
-.nyc_output/
-.coverage/
