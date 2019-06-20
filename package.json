@@ -55,6 +55,13 @@
     "stylelint-scss": "^3.8.0",
     "workbox-build": "^4.3.1"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.25%",
+    "IE > 10",
+    "iOS >= 9",
+    "Firefox ESR"
+  ],
   "scripts": {
     "lint-js": "gulp lint:js",
     "lint-scss": "gulp lint:scss",

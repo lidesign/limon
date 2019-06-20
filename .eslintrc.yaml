@@ -6,10 +6,11 @@ extends:
     - google
 
 rules:
-    no-console: off
-    quotes: [error, double]
-    comma-dangle: [error, never]
     indent: [error, 2]
+    quotes: [error, double]
+    semi: [error, always]
+    comma-dangle: [error, never]
+    no-console: off
     no-unused-vars: warn
     no-var: off # use var just for browser
     spaced-comment: off
@@ -18,10 +19,9 @@ env:
     browser: true
     node: true
     es6: true
-    mocha: true
 
 parserOptions:
-    ecmaVersion: 2017
+    ecmaVersion: 2017 # 2018
     sourceType: module
 
 globals:

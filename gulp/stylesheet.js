@@ -46,7 +46,7 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
   // postcss for production mode
   const postcssProd = [
     mqpacker,
-    presetEnv({ browsers: "last 4 versions" }), // or .browserslistrc
+    presetEnv, // package.json -> browserslist
     cssnano({
       // discard comments not working on /*! comments
       discardComments: {
