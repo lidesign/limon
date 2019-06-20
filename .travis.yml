@@ -12,7 +12,6 @@ branches:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.16.0
   - export PATH=$HOME/.yarn/bin:$PATH
-  - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 cache:
   yarn: true
@@ -23,14 +22,10 @@ install:
   - yarn
 
 script:
-  # https://docs.fossa.com/docs/travisci
-  - fossa init
-  - fossa analyze
-
   # linting javascript and scss
   - yarn lint
   # build source
   - yarn build
 
 after_success:
-  - cd ./dist && fossa test
+  - cd ./dist && ls
