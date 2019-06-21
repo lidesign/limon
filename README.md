@@ -55,8 +55,8 @@ yarn local
 Give a ⭐️ this repository if this project helped you!
 
 ## 📝 License
-Except as otherwise noted, the content licensed under the [MIT License](LICENSE),<br> 
-and code samples are licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+Except as otherwise noted, the code licensed under the [MIT License](LICENSE),<br> 
+and the content licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fillvart%2Fillvart.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fillvart%2Fillvart?ref=badge_large)
 
