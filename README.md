@@ -3,6 +3,10 @@
 My personal website running on <strong>Node.js</strong> ⚡️
 </p>
 <p align="center">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/illvart/illvart.svg">
+  <a href="#-license" title="License">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" />
+  </a>
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fillvart%2Fillvart?ref=badge_shield" title="FOSSA">
     <img alt="FOSSA Status" src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fillvart%2Fillvart.svg?type=shield" />
   </a>
@@ -18,8 +22,13 @@ My personal website running on <strong>Node.js</strong> ⚡️
   <a href="https://david-dm.org/illvart/illvart?type=dev" title="Watch devDependency">
     <img alt="devDependency Status" src="https://david-dm.org/illvart/illvart/dev-status.svg" />
   </a>
+  <img alt="Front‑End_Checklist followed" src="https://img.shields.io/badge/Front‑End_Checklist-followed-brightgreen.svg" />
+  <img alt="Code style" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg">
   <a href="https://app.netlify.com/sites/illvart/deploys" title="Netlify">
     <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0392af17-3c20-4278-8139-7dbabd347d5c/deploy-status" />
+  </a>
+  <a href="https://twitter.com/MaterialUI" title="Follow me on Twitter">
+    <img alt="Twitter" src="https://img.shields.io/twitter/follow/MNF.svg?label=follow+MNF" />
   </a>
 </p>
 
