@@ -19,13 +19,13 @@ My personal website running on <strong>Node.js</strong> ⚡️
   <a href="https://david-dm.org/illvart/illvart?type=dev" title="Watch devDependency">
     <img alt="devDependency Status" src="https://david-dm.org/illvart/illvart/dev-status.svg" />
   </a>
-  <a href="https://twitter.com/illvart" title="Follow me on Twitter">
-    <img alt="Twitter" src="https://img.shields.io/twitter/follow/illvart.svg?label=follow+MNF" />
-  </a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/illvart/deploys" title="Netlify">
     <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0392af17-3c20-4278-8139-7dbabd347d5c/deploy-status" />
+  </a>
+  <a href="https://twitter.com/illvart" title="Follow me on Twitter">
+    <img alt="Twitter" src="https://img.shields.io/twitter/follow/illvart.svg?label=follow+MNF" />
   </a>
 </p>
 
