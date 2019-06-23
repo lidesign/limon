@@ -61,8 +61,6 @@ Give a ⭐️ this repository if this project helped you!
 Except as otherwise noted, the code licensed under the [MIT License](LICENSE),<br> 
 and the content licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fillvart%2Fillvart.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fillvart%2Fillvart?ref=badge_large)
-
 ---
 
 Copyright © 2019 [MNF (illvart)](https://github.com/illvart). All Rights Reserved.
