@@ -32,6 +32,9 @@ Please note this is **experimental** version, if you are interested in using thi
 Please read the others commands in the ```package.json```.
 
 ```bash
+# install packages
+yarn install
+
 # build and running locally
 yarn serve
 
