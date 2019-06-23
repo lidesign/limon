@@ -27,7 +27,7 @@ My personal website running on <strong>Node.js</strong> ⚡️
   <a href="https://app.netlify.com/sites/illvart/deploys" title="Netlify">
     <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/0392af17-3c20-4278-8139-7dbabd347d5c/deploy-status" />
   </a>
-  <a href="https://twitter.com/MaterialUI" title="Follow me on Twitter">
+  <a href="https://twitter.com/illvart" title="Follow me on Twitter">
     <img alt="Twitter" src="https://img.shields.io/twitter/follow/MNF.svg?label=follow+MNF" />
   </a>
 </p>
