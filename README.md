@@ -1,4 +1,8 @@
-<h1 align="center">Welcome to <a href="https://illvart.com" title="Website">illvart.com</a> 👋</h1>
+<p align="center">
+  <a href="https://illvart.com" title="illvart"><img width="144" src="https://raw.githubusercontent.com/illvart/illvart/master/src/assets/img/logo/icon-144x144.png" alt="illvart logo"></a></p>
+</p>
+
+<h1 align="center">Welcome to <a href="https://illvart.com" title="Website">illvart</a> 👋</h1>
 <p align="center">
 My personal website running on <strong>Node.js</strong> ⚡️
 </p>
