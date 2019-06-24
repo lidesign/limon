@@ -1,10 +1,9 @@
 <p align="center">
+  <br>
   <a href="https://illvart.com" title="illvart"><img width="128" src="https://raw.githubusercontent.com/illvart/illvart/master/src/assets/img/logo/icon-128x128.png" alt="illvart logo"></a></p>
 </p>
 <h1 align="center">illvart</a></h1>
-<p align="center">
-<h3>My personal website running on <strong>Node.js</strong> ⚡️</h3>
-</p>
+<h3 align="center">My personal website running on <strong>Node.js</strong> ⚡️</h3>
 <p align="center">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/illvart/illvart.svg">
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fillvart%2Fillvart?ref=badge_shield" title="FOSSA">
@@ -31,6 +30,8 @@
     <img alt="Twitter" src="https://img.shields.io/twitter/follow/illvart.svg?label=follow+MNF" />
   </a>
 </p>
+
+> This project is under active development.
 
 ---
 
