@@ -32,10 +32,12 @@
 </p>
 
 > This project is under active development.
+
 Please note this is **experimental** version, if you are interested in using this template, please use [github.com/illvart/aboutme](https://github.com/illvart/aboutme). 🙏
 
 ---
 
+The most powerful **Front-End** tools used for this project is:
 * [Node.js](https://github.com/nodejs/node)
 * [Gulp](https://github.com/gulpjs/gulp)
 * [ESLint](https://github.com/eslint/eslint)
