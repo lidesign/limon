@@ -4,8 +4,8 @@
 if("serviceWorker"in navigator)window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(){console.log("Service Worker registered! \ud83d\ude0e")})["catch"](function(err){console.log("Service Worker registration failed \ud83d\ude2b",err)})});
 </script>
 {% if mode == "production" %}
-<script async defer src="/{{ js_name_prod }}"></script>
+<script async defer src="/{{ jsNameProd }}"></script>
 {% else %}
-<script async defer src="/{{ js_name_dev }}"></script>
+<script async defer src="/{{ jsNameDev }}"></script>
 {% endif %}
 {% endblock %}

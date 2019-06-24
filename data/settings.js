@@ -1,7 +1,9 @@
 module.exports = {
-  settings: {
+  site: {
     output: "./dist",
+    port: 6661,
     reports: "./.reports",
-    minifyJson: true // only production
+    // only production
+    minifyJson: true
   }
 };

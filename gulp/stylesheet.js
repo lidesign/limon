@@ -13,7 +13,7 @@ const presetEnv = require("postcss-preset-env");
 const cssnano = require("cssnano");
 const discardComments = require("postcss-discard-comments");
 
-module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, sourcemaps }) => {
+module.exports = ({ config, browserSync, reload, generateId, gulp, debug, rename, sourcemaps }) => {
 
   const paths = {
     scss: "./src/assets/scss/**/*.scss",
@@ -112,8 +112,8 @@ module.exports = ({ data, browserSync, reload, generateId, gulp, debug, rename, 
       .pipe(sassGlob())
       .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
       .pipe(postcss(postcssNano))
-      // get the name from metadata.json
-      .pipe(rename(`${data.file_name.mdi}.css`))
+      // get the name from config.yml
+      .pipe(rename(`${config.fileName.mdi}.css`))
       .pipe(debug({ title: "Material Design Icons:" }))
       .pipe(gulp.dest(paths.output.scss));
   });

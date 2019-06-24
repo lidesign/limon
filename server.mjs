@@ -6,16 +6,16 @@
 
 "use strict";
 
-import cfg from "./src/data/config";
-const output = `${cfg.settings.output}`;
+import settings from "./data/settings";
+const output = `${settings.site.output}`;
 
 import express from "express";
 const app = express();
 
 app.use(express.static(output));
 
-// default port 6661
-const PORT = process.env.PORT || 6661;
+// default port in /data/settings.js site.port
+const PORT = process.env.PORT || `${settings.site.port}`;
 
 const listener = app.listen(PORT, () => {
   const PA = listener.address().port;

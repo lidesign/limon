@@ -9,7 +9,7 @@ const nunjucksRender = require("gulp-nunjucks-render");
 const sitemap = require("gulp-sitemap");
 const { pd } = require("pretty-data");
 
-module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, debug, inject }) => {
+module.exports = ({ settings, output, config, browserSync, reload, generateId, gulp, debug, inject }) => {
 
   // nunjucks manageEnv
   const manageEnvironment = (plugin) => {
@@ -40,7 +40,7 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
       };
       this.run = (context, body) => {
         let minified;
-        if (cfg.settings.minifyJson && process.env.NODE_ENV === "production") {
+        if (settings.site.minifyJson && process.env.NODE_ENV === "production") {
           minified = pd.jsonmin(body());
         } else {
           minified = pd.json(body());
@@ -77,14 +77,14 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
           },
           manageEnv: manageEnvironment,
           data: {
-            // store string from metadata.json
-            metadata: data,
+            // store string from config.yml
+            config: config,
             // dynamic css name
-            css_name_dev: `style.${generateId}.css`,
-            css_name_prod: `style.${generateId}.min.css`,
+            cssNameDev: `style.${generateId}.css`,
+            cssNameProd: `style.${generateId}.min.css`,
             // dynamic js name
-            js_name_dev: `app.${generateId}.js`,
-            js_name_prod: `app.${generateId}.min.js`
+            jsNameDev: `app.${generateId}.js`,
+            jsNameProd: `app.${generateId}.min.js`
           }
         })
       )
@@ -101,8 +101,8 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
       })
       .pipe(
         sitemap({
-          // get URL from metadata.json
-          siteUrl: `${data.url}`
+          // get URL from config.json
+          siteUrl: `${config.url}`
         })
       )
       .pipe(debug({ title: "Generate sitemap:" }))
@@ -115,10 +115,10 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
       .src("./src/robots.txt")
 
       // inject after Allow: /
-      // .pipe(inject.after("Allow: /", `\n\nSitemap: ${data.url}/sitemap.xml`))
+      // .pipe(inject.after("Allow: /", `\n\nSitemap: ${config.url}/sitemap.xml`))
 
       // append
-      .pipe(inject.append(`\nSitemap: ${data.url}/sitemap.xml`))
+      .pipe(inject.append(`\nSitemap: ${config.url}/sitemap.xml`))
 
       .pipe(debug({ title: "Inject sitemap url:" }))
       .pipe(gulp.dest(output));
@@ -126,8 +126,8 @@ module.exports = ({ cfg, output, data, browserSync, reload, generateId, gulp, de
 
   // watch nunjucks development mode
   gulp.task("watch:nunjucks", () => {
-    // first run nunjucks:render then sitemap, reload
-    gulp.watch(paths.src.templates, gulp.series("nunjucks:render", "sitemap", reload));
+    // first run nunjucks:render then reload
+    gulp.watch(paths.src.templates, gulp.series("nunjucks:render", reload));
   });
 
 };

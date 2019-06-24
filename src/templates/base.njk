@@ -5,14 +5,14 @@
 {%- endset -%}
 
 <!DOCTYPE html>
-<html dir="{{ metadata.site.dir }}" lang="{{ metadata.site.lang }}">
+<html dir="{{ config.site.dir }}" lang="{{ config.site.lang }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }}</title>
 {% if page.id != "error" %}
-<meta name="description" content="{{ metadata.description }}">
-<link rel="canonical" href="{{ metadata.url }}">
+<meta name="description" content="{{ config.description }}">
+<link rel="canonical" href="{{ config.url }}">
 <meta name="robots" content="index,follow">
 {# meta open graph #}
 {%- include "templates/includes/meta-og.njk" -%}

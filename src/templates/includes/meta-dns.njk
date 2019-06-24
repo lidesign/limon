@@ -10,7 +10,7 @@
 <!-- Preloading -->
 <link rel="preload" href="/assets/fonts/mdi/materialdesignicons-webfont.woff2" as="font" type="font/woff2" crossorigin>
 {% if mode == "production" %}
-<link rel="preload" href="/assets/css/{{ css_name_prod }}" as="style">
+<link rel="preload" href="/assets/css/{{ cssNameProd }}" as="style">
 {% else %}
-<link rel="preload" href="/assets/css/{{ css_name_dev }}" as="style">
+<link rel="preload" href="/assets/css/{{ cssNameDev }}" as="style">
 {% endif %}

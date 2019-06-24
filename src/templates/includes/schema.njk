@@ -3,12 +3,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "{{ metadata.author.name }}",
-  "url": "{{ metadata.url }}",
+  "name": "{{ config.author.name }}",
+  "url": "{{ config.url }}",
   "sameAs": [
-    "{{ metadata.author.social.twitter }}",
-    "{{ metadata.author.social.facebook }}",
-    "{{ metadata.author.social.instagram }}"
+    "{{ config.author.social.twitter }}",
+    "{{ config.author.social.facebook }}",
+    "{{ config.author.social.instagram }}"
   ]
 }
 {% endminifyjson %}

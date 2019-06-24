@@ -1,0 +1,55 @@
+# Website configurations
+#
+# Using yaml
+
+# Site
+title: MNF – Blogger and Front-End Developer
+shortTitle: MNF
+url: https://illvart.com
+description: Project, Portfolio, Blogger Developer and Front-End Developer, and more.
+images: "/assets/img/banner.png"
+
+# Author
+author:
+  name: Muhammad Nur Fuad
+  repository: https://github.com/illvart/illvart
+  email: illvart.email@gmail.com
+
+  social:
+    github: https://github.com/illvart
+    twitter: https://twitter.com/illvart
+    facebook: https://facebook.com/illvart
+    instagram: https://instagram.com/illvart_
+
+# Twitter
+twitter:
+  site: "@illvart"
+  creator: "@illvart"
+
+# Facebook
+facebook:
+  appId: "269764660396935"
+  pages: "2254011318151740"
+
+# Verify Search Engine
+verify:
+  google: OPqICugr4hwp6F-9eZVmHirK-XUmk5bdSwZ43u639AE
+  bing: EE192BA63F2FD24B8CEA244D93BACB7F
+  yandex: 29bf6e6f4141012a
+
+# Google Analytics
+googleAnalytics: UA-130590648-1
+
+# Site settings
+site:
+  dir: ltr
+  lang: en
+  theme: "#2962ff"
+
+# CDN
+cdn:
+  font: https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,500,700&display=swap
+
+# File name
+fileName:
+  mdi: materialdesignicons-v3.6.95

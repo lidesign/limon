@@ -3,7 +3,7 @@
 {# home page configuration #}
 {% set page = {
     id: "home",
-    title: metadata.title,
+    title: config.title,
     center: true,
     content: {
       cover: {
@@ -30,9 +30,9 @@
 
   <section class="cover"><!-- Start cover -->
     <a class="avatar" href="/" title="Avatar">
-      <img draggable="false" src="/assets/img/me.png" alt="{{ page.content.cover.name or metadata.author.name }}">
+      <img draggable="false" src="/assets/img/me.png" alt="{{ page.content.cover.name or config.author.name }}">
     </a>
-    <h1 class="name">{{ page.content.cover.name or metadata.author.name }}</h1>
+    <h1 class="name">{{ page.content.cover.name or config.author.name }}</h1>
     <h2 class="position">{{ page.content.cover.position }}</h2>
   </section><!-- End cover -->
 
@@ -62,9 +62,9 @@
     <!-- // Start contact \\ -->
     <h3 id="contact">{{ page.string.heading.contact }}</h3>
     <p>
-      For personal use <a href="https://m.me/illvart" title="Facebook Messenger (Fanspage)" rel="nofollow noopener noreferrer" target="_blank"><strong>Facebook Messenger (Fanspage)</strong></a>.
+      Personal use <a href="https://m.me/illvart" title="Facebook Messenger (Fanspage)" rel="nofollow noopener noreferrer" target="_blank"><strong>Facebook Messenger (Fanspage)</strong></a>.
       <br>
-      For commercial use <a href="{{ 'mailto:&#105;&#108;&#108;&#118;&#097;&#114;&#116;&#046;&#101;&#109;&#097;&#105;&#108;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;' | safe }}{{ '?Subject=Hello MNF' | toEncodeURI }}" title="Email" target="_top"><strong>email</strong></a> with the subject "<strong>Hello MNF</strong>".
+      Commercial use <a href="{{ 'mailto:&#105;&#108;&#108;&#118;&#097;&#114;&#116;&#046;&#101;&#109;&#097;&#105;&#108;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;' | safe }}{{ '?Subject=Hello MNF' | toEncodeURI }}" title="Email" target="_top"><strong>illvart.email [at] gmail.com</strong></a>, subject "<strong>Hello MNF</strong>".
     </p>
     <br>
     <!--// End contact \\ -->
@@ -151,10 +151,6 @@
 
     <a href="https://stackoverflow.com/users/7878157" onclick="ga('send', 'event', {eventAction: 'click', eventLabel: event.target.href, eventCategory: 'Social Media'})" title="Stack Overflow" aria-label="Follow me on Stack Overflow" rel="noopener noreferrer" target="_blank">
       <i class="mdi mdi-stack-overflow" aria-hidden="true"></i>
-    </a>
-
-    <a href="https://support.google.com/blogger/profile/5867815" onclick="ga('send', 'event', {eventAction: 'click', eventLabel: event.target.href, eventCategory: 'Social Media'})" title="Blogger Community" aria-label="Follow me on Blogger Community" rel="noopener noreferrer" target="_blank">
-      <i class="mdi mdi-blogger" aria-hidden="true"></i>
     </a>
 
   </div>

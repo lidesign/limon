@@ -6,19 +6,28 @@
 
 "use strict";
 
-const fs = require("fs");
-const del = require("del");
-const gulp = require("gulp");
-const debug = require("gulp-debug");
-const rename = require("gulp-rename");
-const inject = require("gulp-inject-string");
-const sourcemaps = require("gulp-sourcemaps");
+//
+// Requirements
+//
+const fs = require("fs"),
+  del = require("del"),
+  yaml = require("js-yaml");
 
-const loader = require("./loader");
-const cfg = require("./src/data/config");
-const output = `${cfg.settings.output}`;
-const reports = `${cfg.settings.reports}`;
-const data = JSON.parse(fs.readFileSync("./src/data/metadata.json"));
+// Gulp
+const gulp = require("gulp"),
+  debug = require("gulp-debug"),
+  rename = require("gulp-rename"),
+  inject = require("gulp-inject-string"),
+  sourcemaps = require("gulp-sourcemaps");
+
+// Data
+const loader = require("./loader"),
+  settings = require("./data/settings"),
+  output = `${settings.site.output}`,
+  reports = `${settings.site.reports}`;
+
+// yaml config
+const config = yaml.safeLoad(fs.readFileSync("./data/config.yml", "utf8"));
 
 // browserSync
 const browserSync = require("browser-sync").create();
@@ -34,10 +43,10 @@ const generateId = crypto.randomBytes(6).toString("hex");
 
 // load gulp task
 loader("./gulp/", {
-  cfg,
+  settings,
   output,
   reports,
-  data,
+  config,
   browserSync,
   reload,
   generateId,
@@ -58,12 +67,12 @@ const server = (cb) => {
     },
     watch: true,
     notify: true,
-    port: 6661,
+    port: `${settings.site.port}`,
     open: false,
     online: true,
     logLevel: "warn",
     // your short name
-    logPrefix: `${data.short_title}`,
+    logPrefix: `${config.shortTitle}`,
     logConnections: false
   });
   cb();
