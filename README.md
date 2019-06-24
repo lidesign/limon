@@ -32,6 +32,7 @@
 </p>
 
 > This project is under active development.
+Please note this is **experimental** version, if you are interested in using this template, please use [github.com/illvart/aboutme](https://github.com/illvart/aboutme). 🙏
 
 ---
 
@@ -43,11 +44,9 @@
 * [stylelint](https://github.com/stylelint/stylelint)
 * [Browsersync](https://github.com/BrowserSync/browser-sync)
 * [Workbox](https://github.com/GoogleChrome/workbox)
+* [Nunjucks](https://github.com/mozilla/nunjucks)
 * [YAML](https://github.com/nodeca/js-yaml)
 * ...and more!
-
-## 🙏 Note
-Please note this is **experimental** version, if you are interested in using this template, please use [github.com/illvart/aboutme](https://github.com/illvart/aboutme).
 
 ## 👨‍💻 Dev
 Please read the others commands in the ```package.json```.
