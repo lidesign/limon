@@ -1,27 +1,42 @@
-/*!
- * Copyright 2019 MNF (illvart)
- * This code licensed under the MIT License.
+/* eslint no-console:'off' */
+/* eslint-env node */
+
+/**
+ * @license
+ * Copyright MNF (illvart) All Rights Reserved.
  * https://github.com/illvart
+ *
+ * This code licensed under the MIT License.
+ * LICENSE file at https://github.com/illvart/illvart/blob/master/LICENSE
  */
 
-"use strict";
+// Config
+import settings from './data/settings';
+const OUTPUT = `${settings.site.output}`;
+const PORT = `${settings.site.port}`;
 
-import settings from "./data/settings";
-const output = `${settings.site.output}`;
+// CLI style
+import chalk from 'chalk';
+// Colors
+const RED = chalk.red;
+const CYAN = chalk.cyan;
 
-import express from "express";
+// Express
+import express from 'express';
 const app = express();
+app.use(express.static(OUTPUT));
 
-app.use(express.static(output));
+// Check cache
+app.get('/sw.js', (req, res, next) => {
+  res.sendFile('/sw.js', { root: './' });
+});
 
-// default port in /data/settings.js site.port
-const PORT = process.env.PORT || `${settings.site.port}`;
-
-const listener = app.listen(PORT, () => {
-  const PA = listener.address().port;
-  console.log("View on the browser:");
-  console.log(`  http://127.0.0.1:${PA}`);
-  console.log("  " + "or");
-  console.log(`  http://localhost:${PA}`);
-  console.log("Press Ctrl+C to quit.");
+// Default port in /data/settings.js site.port
+const listener = app.listen(process.env.PORT || PORT, () => {
+  const LA = listener.address().port;
+  console.log(`${CYAN('Starting up server, serving at')} ${OUTPUT}`);
+  console.log(CYAN('Available on:'));
+  console.log(`  http://localhost:${LA}`);
+  console.log(`  http://127.0.0.1:${LA}`);
+  console.log(RED('Press Ctrl+C to quit.'));
 });

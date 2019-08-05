@@ -1,44 +1,47 @@
-/*!
- * Copyright 2019 MNF (illvart)
- * This code licensed under the MIT License.
+/* eslint-env node */
+
+/**
+ * @license
+ * Copyright MNF (illvart) All Rights Reserved.
  * https://github.com/illvart
+ *
+ * This code licensed under the MIT License.
+ * LICENSE file at https://github.com/illvart/illvart/blob/master/LICENSE
  */
 
-const eslint = require("gulp-eslint");
-const stylelint = require("gulp-stylelint");
+const eslint = require('gulp-eslint');
+const stylelint = require('gulp-stylelint');
 
 module.exports = ({ reports, gulp }) => {
-
-  // linting javascript
-  gulp.task("lint:js", () => {
-    return gulp
-      .src("./src/**/*.js")
+  // Linting javascript
+  gulp.task('lint:js', () =>
+    gulp
+      .src('./**/*.js')
       .pipe(eslint())
       .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
-  });
+      .pipe(eslint.failAfterError())
+  );
 
-  // linting css/scss
-  gulp.task("lint:scss", () => {
-    return gulp.src(["./src/assets/scss/**/*.scss"]).pipe(
+  // Linting css/scss
+  gulp.task('lint:scss', () =>
+    gulp.src(['./src/assets/scss/**/*.scss']).pipe(
       stylelint({
         failAfterError: true,
-        // reports linting
+        // Reports linting
         reportOutputDir: `${reports}/lint/`,
         reporters: [
           {
-            formatter: "verbose",
+            formatter: 'verbose',
             console: true
           },
           {
-            formatter: "json",
-            // check our reports
-            save: "stylelint-report.json"
+            formatter: 'json',
+            // Check our reports
+            save: 'stylelint-report.json'
           }
         ],
         debug: true
       })
-    );
-  });
-
+    )
+  );
 };

@@ -34,7 +34,6 @@
 {# Schema #}
 {%- include "templates/includes/schema.njk" -%}
 {% endif %}
-{% include "templates/includes/analytics.njk" %}
 </head>
 <body {% if page.id %}class="{{ page.id }}"{% endif %}>
 <main{% if page.id != "error" %} class="container{% if page.center == true %} center{% endif %}"{% endif %}><!-- Start main -->
@@ -46,6 +45,7 @@
 <noscript><br>You always need JavaScript to run the web.</noscript>
 {% endif %}
 </main><!-- End main -->
+{% include "templates/includes/analytics.njk" %}
 {% if page.id != "error" -%}
 {% include "templates/includes/scripts.njk" %}
 {%- endif %}

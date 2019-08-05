@@ -1,7 +1,7 @@
 <!-- Scripts -->
 {% block scripts %}
 <script>
-if("serviceWorker"in navigator)window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(){console.log("Service Worker registered! \ud83d\ude0e")})["catch"](function(err){console.log("Service Worker registration failed \ud83d\ude2b",err)})});
+"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(e){console.log("Well done, we supported offline!")})["catch"](function(e){console.warn("Oh no, we can't offline!",e)})})
 </script>
 {% if mode == "production" %}
 <script async defer src="/{{ jsNameProd }}"></script>

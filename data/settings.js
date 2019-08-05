@@ -1,8 +1,10 @@
+/* eslint-env node */
+
 module.exports = {
   site: {
-    output: "./dist",
+    output: './dist',
     port: 6661,
-    reports: "./.reports",
+    reports: './.reports',
     // only production
     minifyJson: true
   }

@@ -58,13 +58,13 @@
     Content-Type = "application/manifest+json; charset=utf-8"
     Cache-Control = "public, max-age=31536000, immutable"
 
-# cache all images on assets/img
+# Cache all images on assets/img
 [[headers]]
   for = "/assets/img/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# cache all fonts on assets/fonts
+# Cache all fonts on assets/fonts
 [[headers]]
   for = "/assets/fonts/*"
   [headers.values]

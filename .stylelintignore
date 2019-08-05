@@ -1,4 +1,4 @@
-dist/
 node_modules/
+dist/
 src/assets/scss/mdi/
 src/assets/scss/style/plugin/
